@@ -3,7 +3,7 @@
 Proyecto de **Programación Declarativa**: escribir, validar, analizar y resolver acertijos de
 caballeros y truhanes y variantes, escritos por el usuario como Prolog plano.
 
-> Estado actual: **Fases 0, 1 y 2 completadas**. 30 pruebas plunit, 12 ejemplos y API HTTP verificada.
+> Estado actual: **Fases 0, 1 y 2 completadas**. 31 pruebas plunit, 12 ejemplos y API HTTP verificada.
 
 ## Estructura
 
@@ -22,7 +22,7 @@ caballeros y truhanes y variantes, escritos por el usuario como Prolog plano.
 ## Puesta en marcha
 
 ```sh
-make test         # 30 pruebas plunit
+make test         # 31 pruebas plunit
 make run          # servidor en http://localhost:8080 (PORT=... para cambiar)
 make docs-check   # comprueba los 12 documentos y las cabeceras de módulos
 make verificar    # test + docs-check

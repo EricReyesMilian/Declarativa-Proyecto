@@ -33,6 +33,15 @@ test(informe_json_soluciones) :-
     E1.entidad == a, E1.atributos.tipo == caballero,
     E2.entidad == b, E2.atributos.tipo == 1.
 
+test(informe_json_valores_compuestos) :-
+    Informe = informe{ estado:unico, numero_soluciones:1, soluciones:[],
+                       unica:true, irreductible:false,
+                       pistas_sobrantes:[1, res(2)],
+                       minimalidad_fuerte:falsa([1,2]), aviso:'' },
+    servidor:informe_json(Informe, Json),
+    Json.pistas_sobrantes == [1, 'res(2)'],
+    sub_atom(Json.minimalidad_fuerte, _, _, _, 'falsa; subconjunto mínimo: 1, 2').
+
 test(ejemplo_valido) :-
     once(servidor:ejemplo_valido(isla_1, Titulo, _)),
     Titulo == "Tres isleños".

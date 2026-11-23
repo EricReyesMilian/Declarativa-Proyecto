@@ -1,6 +1,6 @@
 # 07 · Pruebas
 
-> Estado: implementado. `make test` ejecuta 30 pruebas plunit.
+> Estado: implementado. `make test` ejecuta 31 pruebas plunit.
 
 ## Ejecución
 

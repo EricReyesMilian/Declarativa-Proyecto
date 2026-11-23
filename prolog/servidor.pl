@@ -192,15 +192,29 @@ limitar(Valor0, Min, Max, Valor) :-
 
 informe_json(Informe, Json) :-
     maplist(soluciones_json, Informe.soluciones, SolucionesJson),
+    maplist(term_to_atom_safe, Informe.pistas_sobrantes, SobrantesJson),
+    minimalidad_json(Informe.minimalidad_fuerte, MinimalidadJson),
     Json = _{ estado:Informe.estado,
               numero_soluciones:Informe.numero_soluciones,
               soluciones:SolucionesJson,
               unica:Informe.unica,
               irreductible:Informe.irreductible,
-              pistas_sobrantes:Informe.pistas_sobrantes,
-              minimalidad_fuerte:Informe.minimalidad_fuerte,
+              pistas_sobrantes:SobrantesJson,
+              minimalidad_fuerte:MinimalidadJson,
               aviso:Informe.aviso
             }.
+
+%!  minimalidad_json(+Valor, -Json) is det.
+%
+%   Convierte falsa(Ids), que es un término compuesto, en texto legible para
+%   reply_json_dict/2. El resto de valores ya son átomos.
+
+minimalidad_json(falsa(Ids), Texto) :-
+    !,
+    maplist(term_to_atom_safe, Ids, Textos),
+    atomic_list_concat(Textos, ', ', Lista),
+    format(atom(Texto), 'falsa; subconjunto mínimo: ~w', [Lista]).
+minimalidad_json(Valor, Valor).
 
 soluciones_json(Solucion, EntidadesJson) :-
     findall(E, (member(sol(Nombre, Pares), Solucion),
