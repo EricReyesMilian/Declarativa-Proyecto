@@ -1,0 +1,74 @@
+{
+  "categorias": [
+    {
+      "id": "estructura",
+      "titulo": "Estructura",
+      "bloques": [
+        {"spec": "acertijo/2", "sintaxis": "acertijo(Id, Titulo)", "descripcion": "Identificador y título.", "plantilla": "acertijo(nuevo, \"Nuevo acertijo\").\n"},
+        {"spec": "entidades/1", "sintaxis": "entidades([E1, E2, ...])", "descripcion": "Lista de entidades.", "plantilla": "entidades([a, b, c]).\n"},
+        {"spec": "atributo/2", "sintaxis": "atributo(Nombre, [V1, V2, ...])", "descripcion": "Atributo y dominio ordenado.", "plantilla": "atributo(tipo, [caballero, truhan]).\n"},
+        {"spec": "pista/3", "sintaxis": "pista(Id, Hablante, Afirmacion)", "descripcion": "Afirmación de un hablante.", "plantilla": "pista(1, a, es(b, truhan)).\n"},
+        {"spec": "restriccion/1", "sintaxis": "restriccion(Afirmacion)", "descripcion": "Afirmación global.", "plantilla": "restriccion(exactamente(2, [a,b,c], caballero)).\n"}
+      ]
+    },
+    {
+      "id": "atributo",
+      "titulo": "Atributos",
+      "bloques": [
+        {"spec": "es/2", "sintaxis": "es(E, Valor)", "descripcion": "E tiene ese valor.", "plantilla": "es(a, caballero)"},
+        {"spec": "igual/3", "sintaxis": "igual(E1, E2, Atributo)", "descripcion": "Mismo valor en un atributo.", "plantilla": "igual(a, b, tipo)"},
+        {"spec": "distinto/3", "sintaxis": "distinto(E1, E2, Atributo)", "descripcion": "Distinto valor en un atributo.", "plantilla": "distinto(a, b, tipo)"},
+        {"spec": "vecino/3", "sintaxis": "vecino(E1, E2, Atributo)", "descripcion": "Posiciones consecutivas.", "plantilla": "vecino(a, b, posicion)"},
+        {"spec": "antes/3", "sintaxis": "antes(E1, E2, Atributo)", "descripcion": "E1 precede a E2.", "plantilla": "antes(a, b, posicion)"},
+        {"spec": "todos_distintos/2", "sintaxis": "todos_distintos(Atributo, [E1, ...])", "descripcion": "Valores distintos dos a dos.", "plantilla": "todos_distintos(color, [a,b,c])"}
+      ]
+    },
+    {
+      "id": "conectiva",
+      "titulo": "Conectivas",
+      "bloques": [
+        {"spec": "y/2", "sintaxis": "y(F1, F2)", "descripcion": "Conjunción.", "plantilla": "y(es(a,caballero), es(b,truhan))"},
+        {"spec": "o/2", "sintaxis": "o(F1, F2)", "descripcion": "Disyunción.", "plantilla": "o(es(a,caballero), es(b,caballero))"},
+        {"spec": "no/1", "sintaxis": "no(F)", "descripcion": "Negación.", "plantilla": "no(es(a,truhan))"},
+        {"spec": "si/2", "sintaxis": "si(F1, F2)", "descripcion": "Implicación.", "plantilla": "si(es(a,caballero), es(b,caballero))"},
+        {"spec": "sii/2", "sintaxis": "sii(F1, F2)", "descripcion": "Bicondicional.", "plantilla": "sii(es(a,caballero), es(b,caballero))"},
+        {"spec": "xor/2", "sintaxis": "xor(F1, F2)", "descripcion": "O exclusivo.", "plantilla": "xor(es(a,caballero), es(b,caballero))"}
+      ]
+    },
+    {
+      "id": "conteo",
+      "titulo": "Conteo",
+      "bloques": [
+        {"spec": "al_menos/3", "sintaxis": "al_menos(N, [E1,...], Valor)", "descripcion": "Al menos N entidades.", "plantilla": "al_menos(1, [a,b,c], truhan)"},
+        {"spec": "a_lo_sumo/3", "sintaxis": "a_lo_sumo(N, [E1,...], Valor)", "descripcion": "Como mucho N entidades.", "plantilla": "a_lo_sumo(2, [a,b,c], truhan)"},
+        {"spec": "exactamente/3", "sintaxis": "exactamente(N, [E1,...], Valor)", "descripcion": "Exactamente N entidades.", "plantilla": "exactamente(2, [a,b,c], caballero)"},
+        {"spec": "al_menos/2", "sintaxis": "al_menos(N, [F1,...])", "descripcion": "Al menos N afirmaciones.", "plantilla": "al_menos(2, [es(a,caballero), es(b,truhan)])"},
+        {"spec": "a_lo_sumo/2", "sintaxis": "a_lo_sumo(N, [F1,...])", "descripcion": "Como mucho N afirmaciones.", "plantilla": "a_lo_sumo(1, [es(a,caballero), es(b,truhan)])"},
+        {"spec": "exactamente/2", "sintaxis": "exactamente(N, [F1,...])", "descripcion": "Exactamente N afirmaciones.", "plantilla": "exactamente(1, [es(a,caballero), es(b,truhan)])"}
+      ]
+    },
+    {
+      "id": "hablante",
+      "titulo": "Hablantes",
+      "bloques": [
+        {"spec": "caballero/0", "sintaxis": "caballero", "descripcion": "Siempre dice la verdad.", "plantilla": "caballero"},
+        {"spec": "truhan/0", "sintaxis": "truhan", "descripcion": "Siempre miente.", "plantilla": "truhan"},
+        {"spec": "normal/0", "sintaxis": "normal", "descripcion": "No impone restricción.", "plantilla": "normal"},
+        {"spec": "alternante/0", "sintaxis": "alternante", "descripcion": "Alterna verdad y mentira.", "plantilla": "alternante"},
+        {"spec": "ninguno/0", "sintaxis": "ninguno", "descripcion": "Hecho global.", "plantilla": "ninguno"}
+      ]
+    },
+    {
+      "id": "macro",
+      "titulo": "Macros",
+      "bloques": [
+        {"spec": "igual_tipo/2", "sintaxis": "igual_tipo(X, Y)", "descripcion": " igual(X,Y,tipo).", "plantilla": "igual_tipo(a, b)"},
+        {"spec": "distinto_tipo/2", "sintaxis": "distinto_tipo(X, Y)", "descripcion": "distinto(X,Y,tipo).", "plantilla": "distinto_tipo(a, b)"},
+        {"spec": "todos/2", "sintaxis": "todos(L, V)", "descripcion": "Todos los de la lista tienen el valor.", "plantilla": "todos([a,b,c], caballero)"},
+        {"spec": "alguno/2", "sintaxis": "alguno(L, V)", "descripcion": "Al menos uno tiene el valor.", "plantilla": "alguno([a,b,c], truhan)"},
+        {"spec": "ninguno/2", "sintaxis": "ninguno(L, V)", "descripcion": "Ninguno tiene el valor.", "plantilla": "ninguno([a,b,c], truhan)"},
+        {"spec": "sigue/3", "sintaxis": "sigue(X, Y, A)", "descripcion": "Vecino y además antes.", "plantilla": "sigue(a, b, posicion)"}
+      ]
+    }
+  ]
+}

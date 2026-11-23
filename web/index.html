@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taller de acertijos lógicos</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="barra">
+    <div class="marca">
+      <h1>Taller de acertijos lógicos</h1>
+      <p>Prolog declarativo · caballeros, truhanes y otras criaturas</p>
+    </div>
+    <div class="acciones">
+      <label for="ejemplo">Ejemplo</label>
+      <select id="ejemplo"><option value="">Cargar…</option></select>
+      <button id="btn-analizar" class="primario">Analizar</button>
+      <button id="btn-explicar">Explicar</button>
+      <button id="btn-guardar">Guardar</button>
+      <button id="btn-descargar">Descargar</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel editor-panel">
+      <div class="panel-titulo">
+        <h2>Acertijo</h2>
+        <span id="estado-lineas">Línea 1</span>
+      </div>
+      <div class="editor-wrap">
+        <div id="numeros" class="numeros" aria-hidden="true"></div>
+        <textarea id="editor" spellcheck="false" aria-label="Código del acertijo"></textarea>
+      </div>
+      <div class="opciones">
+        <label>Límite de soluciones <input id="limite" type="number" min="1" max="100" value="100"></label>
+        <label>Tiempo (s) <input id="tiempo" type="number" min="1" max="10" value="5"></label>
+        <label class="check"><input id="minimalidad" type="checkbox"> Minimalidad fuerte</label>
+      </div>
+      <div id="errores" class="errores" aria-live="polite"></div>
+    </section>
+
+    <section class="panel resultado-panel">
+      <div class="panel-titulo">
+        <h2>Resultado</h2>
+        <span id="estado" class="estado">Sin analizar</span>
+      </div>
+      <div id="resumen" class="resumen"></div>
+      <div id="soluciones" class="soluciones"></div>
+      <div id="explicacion" class="explicacion" aria-live="polite"></div>
+    </section>
+
+    <aside class="panel herramientas">
+      <div class="panel-titulo"><h2>Bloques</h2></div>
+      <input id="buscar-bloque" type="search" placeholder="Buscar bloque…">
+      <div id="paleta" class="paleta"></div>
+
+      <div class="panel-titulo"><h2>Asistente</h2></div>
+      <div class="asistente">
+        <label>Entidad <select id="asistente-entidad"></select></label>
+        <label>Hablante <select id="asistente-hablante"></select></label>
+        <label>Afirmación <select id="asistente-formula"></select></label>
+        <button id="btn-insertar-pista" class="primario">Insertar pista</button>
+      </div>
+    </aside>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
